@@ -3,6 +3,8 @@ use Mouse;
 use HTTP::Router;
 use Request::Dispatcher::Dispatch::Simple;
 
+our $VERSION = '0.01';
+
 has 'router' => (
     is      => 'ro',
     default => sub {
