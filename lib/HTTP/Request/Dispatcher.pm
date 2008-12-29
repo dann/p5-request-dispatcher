@@ -1,7 +1,7 @@
-package Request::Dispatcher;
+package HTTP::Request::Dispatcher;
 use Mouse;
 use HTTP::Router;
-use Request::Dispatcher::Dispatch::Simple;
+use HTTP::Request::Dispatcher::Dispatch::Simple;
 
 our $VERSION = '0.01';
 
@@ -10,7 +10,6 @@ has 'router' => (
     default => sub {
         HTTP::Router->new;
     },
-    handles => [qw(add_route)],
 );
 
 no Mouse;
@@ -27,6 +26,11 @@ sub dispatch {
     return $dispatch;
 }
 
+sub set_routeset {
+    my ( $self, $routeset ) = @_;
+    $self->router->routeset($routeset);
+}
+
 __PACKAGE__->meta->make_immutable;
 
 1;
@@ -34,15 +38,15 @@ __END__
 
 =head1 NAME
 
-Request::Dispatcher - Request dispatcher like Rails
+HTTP::Request::Dispatcher - Request dispatcher like Rails
 
 =head1 SYNOPSIS
 
-  use Request::Dispatcher;
+  use HTTP::Request::Dispatcher;
 
 =head1 DESCRIPTION
 
-Request::Dispatcher is the request dispatcher like Rails
+HTTP::Request::Dispatcher is the request dispatcher like Rails
 
 =head1 AUTHOR
 

@@ -1,6 +1,6 @@
 use inc::Module::Install;
-name 'Request-Dispatcher';
-all_from 'lib/Request/Dispatcher.pm';
+name 'HTTP-Request-Dispatcher';
+all_from 'lib/HTTP/Request/Dispatcher.pm';
 
 requires 'Mouse';
 requires 'HTTP::Router';

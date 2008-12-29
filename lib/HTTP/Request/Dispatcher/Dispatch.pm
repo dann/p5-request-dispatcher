@@ -1,4 +1,4 @@
-package Request::Dispatcher::Dispatch;
+package HTTP::Request::Dispatcher::Dispatch;
 use Mouse;
 use Carp ();
 
@@ -12,10 +12,10 @@ no Mouse;
 sub run {
     my $self = shift;
     my @args = @_;
-    $self->execute( \@args );
+    $self->dispatch( \@args );
 }
 
-sub execute {
+sub dispatch {
     my ( $self, $args ) = @_;
     my $match      = $self->match;
     my $controller = $match->params->{controller};
